@@ -25,26 +25,26 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-gray-900/95 backdrop-blur-md border-b border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-24"> {/* Increased height from h-20 to h-24 */}
+        <div className="flex justify-between items-center h-20">
           <div className="flex items-center">
             <img 
               src="https://kelechieze.wordpress.com/wp-content/uploads/2026/03/jdhsgh-removebg-preview.png" 
               alt="PrintCare Academy CIC Logo" 
-              className="h-20 w-auto object-contain" /* Increased from h-12 to h-20 (5rem or 80px) */
+              className="h-16 w-auto object-contain"
               referrerPolicy="no-referrer"
             />
           </div>
           
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-8 text-white">
             <span className="font-medium cursor-pointer hover:text-lime-500 transition-colors">Home</span>
             <span className="font-medium cursor-pointer hover:text-lime-500 transition-colors">About us</span>
             <span className="font-medium cursor-pointer hover:text-lime-500 transition-colors">services</span>
             <span className="font-medium cursor-pointer hover:text-lime-500 transition-colors">contact us</span>
           </div>
 
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden md:flex items-center space-x-4 text-white">
             <Search size={20} className="cursor-pointer hover:text-lime-500 transition-colors" />
             <button className="bg-orange-600 text-white px-6 py-2.5 rounded-md font-semibold hover:bg-orange-700 transition-colors">
               Get In Touch
@@ -52,7 +52,7 @@ const Navbar = () => {
           </div>
 
           <div className="md:hidden flex items-center">
-            <button onClick={() => setIsOpen(!isOpen)} className="text-gray-600">
+            <button onClick={() => setIsOpen(!isOpen)} className="text-white">
               {isOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
           </div>
@@ -66,12 +66,12 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-b border-gray-100 overflow-hidden"
+            className="md:hidden bg-gray-900 border-b border-gray-800 overflow-hidden text-white"
           >
             <div className="px-4 pt-2 pb-6 space-y-4">
-              <div className="font-medium py-2 border-b border-gray-50 cursor-pointer hover:text-lime-500">Home</div>
-              <div className="font-medium py-2 border-b border-gray-50 cursor-pointer hover:text-lime-500">About us</div>
-              <div className="font-medium py-2 border-b border-gray-50 cursor-pointer hover:text-lime-500">services</div>
+              <div className="font-medium py-2 border-b border-gray-800 cursor-pointer hover:text-lime-500">Home</div>
+              <div className="font-medium py-2 border-b border-gray-800 cursor-pointer hover:text-lime-500">About us</div>
+              <div className="font-medium py-2 border-b border-gray-800 cursor-pointer hover:text-lime-500">services</div>
               <div className="font-medium py-2 cursor-pointer hover:text-lime-500">contact us</div>
               <button className="w-full bg-orange-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-orange-700 transition-colors">
                 Get In Touch
@@ -86,7 +86,7 @@ const Navbar = () => {
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
- const slides = [
+  const slides = [
     {
       image: "/gru1.avif",
       title: "TRAINING",
@@ -110,30 +110,6 @@ const Hero = () => {
         lime2: "Community",
         white2: "Support"
       }
-    },
-    {
-      image: "https://kelechieze.wordpress.com/wp-content/uploads/2026/03/kiro1.png",
-      title: "CREATIVE",
-      subtitle: "WORKSHOPS EVENTS",
-      suffix: "SKILL SHARING",
-      tag: {
-        white1: "Learn new techniques",
-        lime1: "hands-on workshops",
-        lime2: "creative events",
-        white2: "skill building"
-      }
-    },
-    {
-      image: "https://kelechieze.wordpress.com/wp-content/uploads/2026/03/kiro4.png",
-      title: "COMMUNITY",
-      subtitle: "CONNECTION GROWTH",
-      suffix: "COLLABORATION",
-      tag: {
-        white1: "Building connections",
-        lime1: "fostering growth",
-        lime2: "creative collaboration",
-        white2: "community first"
-      }
     }
   ];
 
@@ -148,8 +124,8 @@ const Hero = () => {
     <section className="relative pt-20 overflow-hidden">
       <div className="relative min-h-screen flex items-center pt-12 pb-48">
         {/* Background Slider */}
-        <div className="absolute inset-0 z-0">
-          <AnimatePresence mode="wait">
+        <div className="absolute inset-0 z-0 bg-black">
+          <AnimatePresence>
             <motion.div
               key={currentSlide}
               initial={{ opacity: 0, scale: 1.1 }}
@@ -260,6 +236,7 @@ const Hero = () => {
     </section>
   );
 };
+
 
 const FeaturesGrid = () => {
   const features = [
